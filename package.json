@@ -28,7 +28,9 @@
   "license": "MIT",
   "dependencies": {
     "async": "2.4.0",
-    "lodash": "4.17.4"
+    "cheerio": "0.22.0",
+    "lodash": "4.17.4",
+    "request": "2.81.0"
   },
   "devDependencies": {
     "colors": "1.1.2",
