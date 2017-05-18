@@ -14,7 +14,7 @@
     "helper",
     "testing"
   ],
-  "main": "index.js",
+  "main": "nodeforces.js",
   "bin": {
     "nodeforces": "./bin/nodeforces.js"
   },
@@ -29,6 +29,7 @@
   "dependencies": {
     "async": "2.4.0",
     "cheerio": "0.22.0",
+    "commander": "2.9.0",
     "lodash": "4.17.4",
     "request": "2.81.0"
   },
