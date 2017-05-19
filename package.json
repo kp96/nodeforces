@@ -32,6 +32,7 @@
     "cheerio": "0.22.0",
     "commander": "2.9.0",
     "lodash": "4.17.4",
+    "mkdirp": "0.5.1",
     "mocha": "3.4.1",
     "request": "2.81.0"
   },

@@ -4,6 +4,7 @@
 
 var _ = require('lodash'),
     async = require('async'),
+    mkdirp = require('mkdirp'),
 
     fs = require('fs'),
     path = require('path'),
@@ -45,10 +46,10 @@ module.exports = function() {
 
         async.waterfall([
             // 1. Create problem dir
-            async.apply(fs.mkdir, args.dir),
+            async.apply(mkdirp, args.dir),
 
             // 2. Call init method of api
-            function(cb) {
+            function(made, cb) {
                 return api.init(_.pick(args, ['filePath', 'fileHeaderPath', 'url', 'dir']), cb);
             }
         ], function(err) {
