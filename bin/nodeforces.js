@@ -1,1 +1,62 @@
 #!/usr/bin/env node
+
+/**
+ * CLI Parser.
+ */
+
+var _ = require('lodash'),
+    program = require('./private/patched-commander'),
+    nodeforcesPackageJson = require('../package.json'),
+    cmd;
+
+program
+  .version(nodeforcesPackageJson.version, '-v, --version');
+
+// make `-v` option case-insensitive
+process.argv = _.map(process.argv, function(arg) {
+    return (arg === '-V') ? '-v' : arg;
+});
+
+
+// $ nodeforces version (--version synonym)
+program
+  .command('version')
+  .description('')
+  .action(program.versionInformation);
+
+program
+  .unknownOption = _.noop;
+
+program.usage('[command]');
+
+
+// $ nodeforces init
+cmd = program.command('init [problem_name]');
+cmd.option('-e, --ext [type]', 'File extension to recognize your runtime');
+cmd.unknownOption = _.noop;
+cmd.description('This command initializes a codefile for you to start coding');
+cmd.alias('i');
+cmd.action(require('./nodeforces-init'));
+
+
+// $ nodeforces test
+cmd = program.command('test [problem_name]');
+cmd.unknownOption = _.noop;
+cmd.description('This command (compiles,) runs your code against sample test cases');
+cmd.alias('t');
+cmd.action(require('./nodeforces-test'));
+
+// Output nodeforces help when an unrecognized command is used.
+program
+    .command('*')
+    .action(function() {
+        program.help();
+    });
+
+program.unknownOption = _.noop;
+
+program.parse(process.argv);
+
+if (program.args.length === 0) {
+    program.help();
+}
