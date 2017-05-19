@@ -1,8 +1,7 @@
 /**
  * Main api that exposes init and test functions
  */
-var _ = require('lodash'),
-    async = require('async'),
+var async = require('async'),
 
     cfapi = require('./lib/cfapi'),
     fsapi = require('./lib/fsapi'),
@@ -31,6 +30,21 @@ module.exports = {
     },
 
     test: function(args, cb) {
-        return cb();
+        async.waterfall([
+            // 1. Get inputs for the problem
+            function(cb) {
+                return fsapi.getInputFiles(args.dir, cb);
+            },
+
+            // 2. Compile and run the code with inputs
+            function(inputs, cb) {
+                return compiler.exec(args.dir, args.fileName, inputs, cb);
+            },
+
+            // 3. Hope everything ran fine and run the testapi
+            function(results, cb) {
+                return testapi.runTests(args.title, args.dir, cb);
+            }
+        ], cb);
     }
 };

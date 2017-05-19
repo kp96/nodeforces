@@ -6,7 +6,6 @@ var _ = require('lodash'),
     async = require('async'),
     mkdirp = require('mkdirp'),
 
-    fs = require('fs'),
     path = require('path'),
 
     config = require('../lib/config'),

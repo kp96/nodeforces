@@ -14,7 +14,7 @@
     "helper",
     "testing"
   ],
-  "main": "nodeforces.js",
+  "main": "index.js",
   "bin": {
     "nodeforces": "./bin/nodeforces.js"
   },

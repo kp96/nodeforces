@@ -128,7 +128,7 @@ describe('project repository', function () {
 
         describe('main entry script', function () {
             it('must point to a valid file', function (done) {
-                expect(json.main).to.equal('nodeforces.js');
+                expect(json.main).to.equal('index.js');
                 fs.stat(json.main, done);
             });
         });
