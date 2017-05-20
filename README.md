@@ -1,7 +1,7 @@
 # nodeforces
 The only [codeforces](http://codeforces.com/) helper library you'll ever need.
 
-nodeforces is a library written for in node that helps you compile and test your codeforces contest problems on the go.
+nodeforces is a library written in node that helps you compile and test your codeforces contest problems on the go.
 
 ## How it Works
 ```
