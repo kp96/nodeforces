@@ -2,62 +2,42 @@
  * CLI Parser for initialize command
  */
 
+require('colors');
+
 var _ = require('lodash'),
     async = require('async'),
     mkdirp = require('mkdirp'),
 
-    path = require('path'),
+    ora = require('ora'),
 
     config = require('../lib/config'),
-    api = require('../'),
+    api = require('../');
 
-    homedir = require('os').homedir();
 
 module.exports = function() {
-    var args = arguments || {};
+    var args = arguments || {},
+        spinner = ora('Parsing problem from codeforces').start();
 
-    if (!_.isString(args['0']) || !(/^\d{3}[A-Z]{1}$/).test(args['0'])) {
-        console.error('Not a valid codeforces problem code [(roundnumber)(problemcode)] eg: 756A');
-        return process.exit(1);
-    }
+    async.waterfall([
+        // 1. Get args
+        async.apply(config.get, args),
 
-    // check if config is provided
-    config.get(function(err, configArgs) {
+        // 2. Create problem dir
+        function(args, cb) {
+            return mkdirp(args.dir, cb);
+        },
+
+        // 3. Call init method of api
+        function(made, cb) {
+            return api.init(_.pick(args, ['filePath', 'fileHeaderPath', 'url', 'dir']), cb);
+        }
+    ], function(err) {
+
         if (err) {
-            console.warn('Warn: Ignoring Config File:', err.message || err);
-            configArgs = {};
+            spinner.fail(err.toString().red);
+            return process.exit(1);
         }
 
-        // fallback to commandline args
-        if (args['1'] && args['1'].ext && !_.includes(['cpp', 'java'], args['1'].ext)) {
-            console.error('Not a valid extension. Use -e flag with one of (cpp|java)');
-            process.exit(1);
-        }
-
-        var contestNumber = args['0'].substr(0, 3),
-            problemAlpha = args['0'][3];
-
-        args.url = `http://codeforces.com/contest/${contestNumber}/problem/${problemAlpha}`;
-
-        args.dir = path.join(_.get(configArgs, 'src.dir', homedir), args['0']);
-        args.filePath = path.join(args.dir, `${args['0']}.${args['1'].ext || configArgs.src.fileExt}`);
-        args.fileHeaderPath = _.get(configArgs, 'src.fileHeaderPath', 'none');
-
-        async.waterfall([
-            // 1. Create problem dir
-            async.apply(mkdirp, args.dir),
-
-            // 2. Call init method of api
-            function(made, cb) {
-                return api.init(_.pick(args, ['filePath', 'fileHeaderPath', 'url', 'dir']), cb);
-            }
-        ], function(err) {
-            if (err) {
-                console.error(err.message || err);
-                return process.exit(1);
-            }
-
-            return console.info(`File Created at ${args.filePath}. Get ready to start coding`);
-        });
+        return spinner.succeed(`File Created at ${args.filePath}. Get ready to start coding`.green);
     });
 };

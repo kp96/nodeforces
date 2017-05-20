@@ -38,7 +38,7 @@ module.exports = {
 
             // 2. Compile and run the code with inputs
             function(inputs, cb) {
-                return compiler.exec(args.dir, args.fileName, inputs, cb);
+                return compiler.exec(args, inputs, cb);
             },
 
             // 3. Hope everything ran fine and run the testapi

@@ -32,7 +32,6 @@ program.usage('[command]');
 
 // $ nodeforces init
 cmd = program.command('init [problem_name]');
-cmd.option('-e, --ext [type]', 'File extension to recognize your runtime');
 cmd.unknownOption = _.noop;
 cmd.description('This command initializes a codefile for you to start coding');
 cmd.alias('i');
