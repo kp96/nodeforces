@@ -60,7 +60,7 @@ describe('project repository', function () {
         describe('binary definitions', function () {
             it('must exist', function () {
                 expect(json.bin).be.ok();
-                expect(json.bin).to.eql({ 'nodeforces': './bin/nodeforces.js' });
+                expect(json.bin).to.eql({ 'nodeforces': './bin/nodeforces' });
             });
 
             it('must have valid node shebang', function () {
