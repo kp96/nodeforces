@@ -1,0 +1,58 @@
+{
+  "name": "nodeforces",
+  "version": "0.1.0-beta.1",
+  "description": "The only codeforces helper you'll ever need",
+  "homepage": "https://github.com/kp96/nodeforces",
+  "bugs": "https://github.com/kp96/nodeforces/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kp96/nodeforces.git"
+  },
+  "keywords": [
+    "codeforces",
+    "api",
+    "helper",
+    "testing"
+  ],
+  "main": "index.js",
+  "bin": {
+    "nodeforces": "./bin/nodeforces"
+  },
+  "scripts": {
+    "test": "node npm/test.js",
+    "test-system": "node npm/test-system.js",
+    "test-lint": "node npm/test-lint.js",
+    "test-unit": "node npm/test-unit.js"
+  },
+  "author": "Krishna Kalubandi <krishnakalubandi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "2.4.0",
+    "chai": "3.5.0",
+    "cheerio": "0.22.0",
+    "commander": "2.9.0",
+    "lodash": "4.17.4",
+    "mkdirp": "0.5.1",
+    "mocha": "3.4.1",
+    "request": "2.81.0"
+  },
+  "devDependencies": {
+    "colors": "1.1.2",
+    "editorconfig": "0.13.2",
+    "eslint": "3.19.0",
+    "eslint-plugin-lodash": "2.4.2",
+    "eslint-plugin-mocha": "4.9.0",
+    "eslint-plugin-security": "1.3.0",
+    "expect.js": "0.3.1",
+    "istanbul": "0.4.5",
+    "nsp": "2.6.3",
+    "packity": "0.3.2",
+    "parse-gitignore": "0.4.0",
+    "pretty-ms": "2.1.0",
+    "recursive-readdir": "2.2.1",
+    "shelljs": "0.7.7"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
