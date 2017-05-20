@@ -1,4 +1,6 @@
 # nodeforces
+[![Build Status](https://travis-ci.org/kp96/nodeforces.svg?branch=master)](https://travis-ci.org/kp96/nodeforces)
+
 The only [codeforces](http://codeforces.com/) helper library you'll ever need.
 
 nodeforces is a library written in node that helps you compile and test your codeforces contest problems on the go.
