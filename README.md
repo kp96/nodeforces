@@ -1,5 +1,6 @@
 # nodeforces
-[![Build Status](https://travis-ci.org/kp96/nodeforces.svg?branch=master)](https://travis-ci.org/kp96/nodeforces)
+[![Build Status](https://travis-ci.org/kp96/nodeforces.svg)](https://travis-ci.org/kp96/nodeforces)
+[![Build status](https://ci.appveyor.com/api/projects/status/04fcvk04a1stbau0?svg=true)](https://ci.appveyor.com/project/kp96/nodeforces)
 
 The only [codeforces](http://codeforces.com/) helper library you'll ever need.
 
@@ -27,7 +28,7 @@ The package can be installed with `node.js` `npm` package manager. If you dont h
 $ npm install -g nodeforces
 ```
 
-**Note:** The `-g` flag might require `sudo` permisson. The module may not work as expected in Windows or non UNIX operating systems.
+**Note:** The `-g` flag might require `sudo` permisson.
 
 ## Usage
 
