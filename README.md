@@ -19,7 +19,7 @@ And that's all you need to create and test your code.
 - Support for Java `javac` and C++ `g++` (More on the way!)
 
 ## Install
-The package can be installed with `node.js` `npm` package manager. If you dont have nodejs installed you can donwload it [here](https://nodejs.org/en/download/)
+The package can be installed with `node.js` `npm` package manager. If you dont have `nodejs` installed you can download it [here](https://nodejs.org/en/download/)
 
 ```
 $ npm install -g nodeforces
@@ -52,16 +52,16 @@ Options:
   -v, --version  output the version number
 ```
 
-### Initialze a problem
+### Initialize a problem
 ```
 $ nodeforces init 585C -e cpp
 
 File Created at /home/krishna/585C/585C.cpp. Get ready to start coding
 
 ```
-The above command automatically creats a folder `765A` in your `home` directory and adds the source file `765A.cpp` along with sample input and output files. You can change the directory to store and other options **(see Advanced Usage)**
+The above command automatically creats a folder `585C` in your `home` directory and adds the source file `585C.cpp` along with sample input and output files. You can change the directory to store and other options [**(see Advanced Usage)**](#advanced-usage)
 
-See the argument `-e cpp`. That's what tells the module to compile your code using `g++`. For specifying compiler options **(see Advanced Usage)**
+See the argument `-e cpp`. That's what tells the module to compile your code using `g++`. For specifying compiler options [**(see Advanced Usage)**](#advanced-usage)
 
 ### Test your solution
 ```
