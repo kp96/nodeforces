@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Most of the repository structure and practices are inspired from `postmanlabs/newman` and `balderdashy/sails`. The licenses are given below.
+
+https://github.com/postmanlabs/newman/blob/develop/LICENSE.md
+
+https://github.com/balderdashy/sails/blob/master/LICENSE.md

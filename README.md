@@ -59,9 +59,9 @@ $ nodeforces init 585C -e cpp
 File Created at /home/krishna/585C/585C.cpp. Get ready to start coding
 
 ```
-The above command automatically creats a folder `585C` in your `home` directory and adds the source file `585C.cpp` along with sample input and output files. You can change the directory to store and other options [**(see Advanced Usage)**](#advanced-usage)
+The above command automatically creats a folder `585C` in your `home` directory and adds the source file `585C.cpp` along with sample input and output files. You can change the directory to store and other options [**(see Advanced Usage)**](#advanced-usage-experimental)
 
-See the argument `-e cpp`. That's what tells the module to compile your code using `g++`. For specifying compiler options [**(see Advanced Usage)**](#advanced-usage)
+See the argument `-e cpp`. That's what tells the module to compile your code using `g++`. For specifying compiler options [**(see Advanced Usage)**](#advanced-usage-experimental)
 
 ### Test your solution
 ```
@@ -99,7 +99,7 @@ The output format should be familiar to you if you've used [Mocha](https://mocha
 
 
 ## Advanced Usage (Experimental)
-Advanced users, can create a `.cfrc` file in their `home` directory for specifying advanced options. The config should be a `json` file that looks something like
+Advanced users can create a `.cfrc` file in their `home` directory for specifying advanced options. The config should be a `json` file that looks something like
 
 ```
 {
@@ -116,6 +116,7 @@ Advanced users, can create a `.cfrc` file in their `home` directory for specifyi
 ```
 
 ## Contributing
+- The project follows [gitflow](http://nvie.com/posts/a-successful-git-branching-model/) branching model.
 - Branch off of `develop` into a `feature/your_feature` branch.
 - Do a `npm run test` to make sure you're not breaking anything.
-- Send a `pr` with a meaningful description to `develop`
+- Send a `pull request` to `develop` branch with a meaningful description.
