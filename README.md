@@ -25,7 +25,7 @@ The package can be installed with `node.js` `npm` package manager. If you dont h
 $ npm install -g nodeforces
 ```
 
-**Note:** The `-g` flag might require `sudo` permissons.
+**Note:** The `-g` flag might require `sudo` permisson. The module may not work as expected in Windows or non UNIX operating systems.
 
 ## Usage
 

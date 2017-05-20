@@ -16,7 +16,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "nodeforces": "./bin/nodeforces.js"
+    "nodeforces": "./bin/nodeforces"
   },
   "scripts": {
     "test": "node npm/test.js",
