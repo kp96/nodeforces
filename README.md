@@ -1,7 +1,7 @@
 # nodeforces
 The only [codeforces](http://codeforces.com/) helper library you'll ever need.
 
-nodeforces is a library written in node that helps you compile and test your codeforces contest problems on the go.
+nodeforces is a library written for in node that helps you compile and test your codeforces contest problems on the go.
 
 ## How it Works
 ```
@@ -25,7 +25,7 @@ The package can be installed with `node.js` `npm` package manager. If you dont h
 $ npm install -g nodeforces
 ```
 
-**Note:** The `-g` flag might require `sudo` permissons.
+**Note:** The `-g` flag might require `sudo` permisson. The module may not work as expected in Windows or non UNIX operating systems.
 
 ## Usage
 

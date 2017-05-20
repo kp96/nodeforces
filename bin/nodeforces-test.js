@@ -29,8 +29,8 @@ module.exports = function() {
         }
 
         // fallback to commandline args
-        if (args['1'] && args['1'].ext && !_.includes(['cpp', 'py', 'java'], args['1'].ext)) {
-            console.error('Not a valid extension. Use -e flag with one of (cpp|py|java)');
+        if (args['1'] && args['1'].ext && !_.includes(['cpp', 'java'], args['1'].ext)) {
+            console.error('Not a valid extension. Use -e flag with one of (cpp|java)');
             process.exit(1);
         }
 
