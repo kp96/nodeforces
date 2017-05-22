@@ -33,12 +33,12 @@ module.exports = {
         async.waterfall([
             // 1. Get inputs for the problem
             function(cb) {
-                return fsapi.getInputFiles(args.dir, cb);
+                return fsapi.getFilesByRegex(args.dir, /^(input).*$/, cb);
             },
 
             // 2. Compile and run the code with inputs
-            function(inputs, cb) {
-                return compiler.exec(args, inputs, cb);
+            function(files, cb) {
+                return compiler.exec(args, files.input, cb);
             },
 
             // 3. Hope everything ran fine and run the testapi
