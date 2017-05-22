@@ -82,7 +82,7 @@ describe('.compiler', function() {
             compiler._run(path.resolve('./test/fixtures/compiler/code'), 'test.cpp', 'in.txt', function(err) {
 
                 expect(err).to.not.be.ok();
-                expect(stub.getCall(0).args[0]).to.be.eql('./a.out');
+                expect(stub.getCall(0).args[0]).to.be.eql((/^win/).test(process.platform) ? 'a.exe' : './a.out');
 
                 return done();
             });
