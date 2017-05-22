@@ -1,6 +1,8 @@
 # nodeforces
 [![Build Status](https://travis-ci.org/kp96/nodeforces.svg)](https://travis-ci.org/kp96/nodeforces)
 [![Build status](https://ci.appveyor.com/api/projects/status/04fcvk04a1stbau0?svg=true)](https://ci.appveyor.com/project/kp96/nodeforces)
+[![Code Climate](https://codeclimate.com/github/kp96/nodeforces/badges/gpa.svg)](https://codeclimate.com/github/kp96/nodeforces)
+[![Code Climate](https://codeclimate.com/github/kp96/nodeforces/badges/coverage.svg)](https://codeclimate.com/github/kp96/nodeforces)
 
 The only [codeforces](http://codeforces.com/) helper library you'll ever need.
 
