@@ -20,8 +20,8 @@ module.exports = function(exit) {
     var runner = function(options, exit) {
         var fileName = options.fileName,
             filePath = options.filePath || path.resolve(require('os').homedir(), _.split(fileName, '.')[0], fileName),
-            command = path.resolve('./bin/nodeforces'),
-            init = child_process.spawn(command, ['init', fileName], { timeout: 5000 });
+            binPath = path.resolve('./bin/nodeforces'),
+            init = child_process.spawn('node', [binPath, 'init', fileName], { timeout: 5000 });
 
         init.on('close', function(code) {
             if (code !== 0) {
@@ -35,7 +35,7 @@ module.exports = function(exit) {
                         return exit(1);
                     }
 
-                    var test = child_process.spawn(command, ['test', fileName], { timeout: 5000 });
+                    var test = child_process.spawn('node', [binPath, 'test', fileName], { timeout: 5000 });
 
                     test.on('close', function(code) {
                         if (code !== 0) {
