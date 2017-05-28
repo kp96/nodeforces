@@ -2,15 +2,11 @@
  * Tests for codeforces parser
  */
 
-var _ = require('lodash'),
-    expect = require('expect.js'),
+var expect = require('expect.js'),
 
     path = require('path'),
-    os = require('os'),
 
-    sinon = require('sinon'),
     rewire = require('rewire'),
-    sandbox = sinon.sandbox.create(),
     fsapi = require('../../lib/fsapi'),
 
     config = rewire('../../lib/config');
