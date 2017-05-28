@@ -35,7 +35,7 @@ cmd = program.command('init [problem_name]');
 cmd.unknownOption = _.noop;
 cmd.description('This command initializes a codefile for you to start coding');
 cmd.alias('i');
-cmd.action(require('./nodeforces-init'));
+cmd.action(require('./action'));
 
 
 // $ nodeforces test
@@ -43,7 +43,7 @@ cmd = program.command('test [problem_name]');
 cmd.unknownOption = _.noop;
 cmd.description('This command (compiles,) runs your code against sample test cases');
 cmd.alias('t');
-cmd.action(require('./nodeforces-test'));
+cmd.action(require('./action'));
 
 // Output nodeforces help when an unrecognized command is used.
 program

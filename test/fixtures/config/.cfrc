@@ -1,0 +1,10 @@
+{
+  "src": {
+    "dir": "/home/krishna/Documents",
+    "fileHeaderPath": "/home/krishna/Documents/header.cpp"
+  },
+
+  "compiler": {
+    "options": ["-DDEBUG"]
+  }
+}
