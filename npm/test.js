@@ -8,7 +8,8 @@ var prettyms = require('pretty-ms'),
 require('async').series([
     require('./test-lint'),
     require('./test-system'),
-    require('./test-unit')
+    require('./test-unit'),
+    require('./test-integration')
 ], function (code) {
     console.info(`\nnodeforces: duration ${prettyms(Date.now() - startedAt)}\ntests: ${code ? 'not ok' : 'ok'}!`[code ?
         'red' : 'green']);
