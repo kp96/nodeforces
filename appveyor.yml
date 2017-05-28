@@ -22,7 +22,7 @@ build: off # Disable MSBuilds, not related to the regular build process
 
 # to run your custom scripts instead of automatic tests
 test_script:
-  - node --version && npm --version
+  - node --version && npm --version && g++ --version && java -version && javac -version
   - cmd: "npm test"
 
 # to disable deployment
