@@ -18,7 +18,8 @@ install:
   - npm cache clean
   - appveyor-retry npm install
 
-build: off # Disable MSBuilds, not related to the regular build process
+before_build:
+  - set PATH=%PATH%;C:\MinGW\bin;
 
 # to run your custom scripts instead of automatic tests
 test_script:
