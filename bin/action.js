@@ -30,7 +30,7 @@ module.exports = function() {
 
         var successResponse = {
             init: `File Created at ${args.filePath}. Get ready to start coding`.green,
-            test: 'Reporting Test Results'
+            test: 'Tests ran succesfully'
         };
 
         return spinner.succeed(successResponse[action]);

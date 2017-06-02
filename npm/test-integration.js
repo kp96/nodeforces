@@ -21,11 +21,12 @@ module.exports = function(exit) {
         var fileName = options.fileName,
             filePath = options.filePath || path.resolve(require('os').homedir(), _.split(fileName, '.')[0], fileName),
             binPath = path.resolve('./bin/nodeforces'),
-            init = child_process.spawn('node', [binPath, 'init', fileName], { timeout: 5000 });
+            init = child_process.spawn('node', _.flatten([binPath, 'init', fileName, options.options]),
+                { timeout: 5000 });
 
         init.on('close', function(code) {
             if (code !== 0) {
-                console.error('Integration tests failed at nodeforces init 811A.java'.red.bold);
+                console.error(`Integration tests failed at nodeforces init ${fileName}`.red.bold);
                 return exit(1);
             }
             fsapi.copyFile(path.resolve(`./test/integration/${fileName}`), filePath,
@@ -35,11 +36,12 @@ module.exports = function(exit) {
                         return exit(1);
                     }
 
-                    var test = child_process.spawn('node', [binPath, 'test', fileName], { timeout: 5000 });
+                    var test = child_process.spawn('node', _.flatten([binPath, 'test', fileName, options.options]),
+                        { timeout: 5000 });
 
                     test.on('close', function(code) {
                         if (code !== 0) {
-                            console.error('Integration tests failed at nodeforces test 811A.java'.red.bold);
+                            console.error(`Integration tests failed at nodeforces test ${fileName}`.red.bold);
                             return exit(1);
                         }
 
