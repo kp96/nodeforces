@@ -28,9 +28,11 @@ module.exports = function() {
             return process.exit(1);
         }
 
+        spinner.stop();
+
         var successResponse = {
             init: `File Created at ${args.filePath}. Get ready to start coding`.green,
-            test: 'Reporting Test Results'
+            test: 'Tests ran succesfully'
         };
 
         return spinner.succeed(successResponse[action]);

@@ -43,6 +43,7 @@ cmd = program.command('test [problem_name]');
 cmd.unknownOption = _.noop;
 cmd.description('This command (compiles,) runs your code against sample test cases');
 cmd.alias('t');
+cmd.option('-d --debug', 'run in debug mode (ignores lines with ~)');
 cmd.action(require('./action'));
 
 // Output nodeforces help when an unrecognized command is used.

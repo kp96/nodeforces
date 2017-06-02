@@ -4,5 +4,9 @@ module.exports = {
     },
     {
         fileName: '811B.cpp'
+    },
+    {
+        fileName: '812C.cpp',
+        options: ['-d']
     }]
 };
