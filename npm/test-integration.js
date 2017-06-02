@@ -39,9 +39,13 @@ module.exports = function(exit) {
                     var test = child_process.spawn('node', _.flatten([binPath, 'test', fileName, options.options]),
                         { timeout: 5000 });
 
+                    test.stderr.on('data', function(data) {
+                        console.error(`${data}`);
+                    });
                     test.on('close', function(code) {
                         if (code !== 0) {
-                            console.error(`Integration tests failed at nodeforces test ${fileName}`.red.bold);
+                            console.error(`Integration Tests failed at nodeforces test ${fileName}. Code ${code}`
+                                .red.bold);
                             return exit(1);
                         }
 
@@ -50,6 +54,10 @@ module.exports = function(exit) {
                         return exit(0);
                     });
                 });
+        });
+
+        init.stderr.on('data', function(data) {
+            console.error(`${data}`);
         });
     };
 
