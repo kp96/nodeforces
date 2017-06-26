@@ -103,7 +103,7 @@ describe('.compiler', function() {
             compiler._run(path.resolve('./test/fixtures/compiler/code'), 'error.java', 'err.txt', function(err) {
 
                 expect(err).to.be.ok();
-                expect(err.message).to.be.equal('Run Failed');
+                expect(err.message).to.match(/Run Failed. Exit Code \d+/);
                 expect(console.error.getCall(0).args[0]).to.be.equal('error compiling');
 
                 return done();
