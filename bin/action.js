@@ -24,8 +24,8 @@ module.exports = function() {
     ], function(err) {
 
         if (err) {
-            spinner.fail(err.toString().red);
-            return process.exit(1);
+            process.exitCode = 1;
+            return spinner.fail(err.toString().red);
         }
 
         spinner.stop();

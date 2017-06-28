@@ -25,7 +25,7 @@ module.exports = function(exit) {
                 { timeout: 5000 });
 
         init.on('close', function(code) {
-            if (code !== 0) {
+            if (code !== (options.ccode || 0)) {
                 console.error(`Integration tests failed at nodeforces init ${fileName}`.red.bold);
                 return exit(1);
             }
@@ -36,14 +36,13 @@ module.exports = function(exit) {
                         return exit(1);
                     }
 
-                    var test = child_process.spawn('node', _.flatten([binPath, 'test', fileName, options.options]),
-                        { timeout: 5000 });
+                    var test = child_process.spawn('node', _.flatten([binPath, 'test', fileName, options.options]));
 
                     test.stderr.on('data', function(data) {
                         console.error(`${data}`);
                     });
                     test.on('close', function(code) {
-                        if (code !== 0) {
+                        if (code !== (options.rcode || 0)) {
                             console.error(`Integration Tests failed at nodeforces test ${fileName}. Code ${code}`
                                 .red.bold);
                             return exit(1);

@@ -79,7 +79,8 @@ describe('.compiler', function() {
 
     describe('._run', function() {
         it('should recognize .cpp files and run them using apppropriate a files', function(done) {
-            compiler._run(path.resolve('./test/fixtures/compiler/code'), 'test.cpp', 'in.txt', function(err) {
+            compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'test.cpp' },
+            'in.txt', function(err) {
 
                 expect(err).to.not.be.ok();
                 expect(stub.getCall(0).args[0]).to.be.eql((/^win/).test(process.platform) ? 'a.exe' : './a.out');
@@ -89,7 +90,8 @@ describe('.compiler', function() {
         });
 
         it('should recognize .java files and run them using java Main', function(done) {
-            compiler._run(path.resolve('./test/fixtures/compiler/code'), 'test.java', 'in.txt', function(err) {
+            compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'test.java' },
+            'in.txt', function(err) {
 
                 expect(err).to.not.be.ok();
                 expect(stub.getCall(0).args[0]).to.be.equal('java');
@@ -99,8 +101,9 @@ describe('.compiler', function() {
             });
         });
 
-        it('should throw runtime if run fails and must pipe child_process err to stderr', function(done) {
-            compiler._run(path.resolve('./test/fixtures/compiler/code'), 'error.java', 'err.txt', function(err) {
+        it('should throw runtime error if run fails and must pipe child_process err to stderr', function(done) {
+            compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'error.java' },
+            'err.txt', function(err) {
 
                 expect(err).to.be.ok();
                 expect(err.message).to.match(/Run Failed. Exit Code \d+/);

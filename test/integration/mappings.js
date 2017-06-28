@@ -8,5 +8,10 @@ module.exports = {
     {
         fileName: '812C.cpp',
         options: ['-d']
+    },
+    {
+        fileName: '812D.cpp',
+        options: ['-d'],
+        rcode: 1
     }]
 };
