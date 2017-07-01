@@ -72,7 +72,7 @@ module.exports = {
 
                 // 4. Hope everything ran fine and run the testapi
                 function(results, cb) {
-                    return testapi.runTests(args.title, args.dir, cb);
+                    return testapi.runTests(args, cb);
                 }
             ], cb);
         });

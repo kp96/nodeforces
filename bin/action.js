@@ -24,13 +24,15 @@ module.exports = function() {
     ], function(err) {
 
         if (err) {
-            spinner.fail(err.toString().red);
-            return process.exit(1);
+            process.exitCode = 1;
+            return spinner.fail(err.toString().red);
         }
+
+        spinner.stop();
 
         var successResponse = {
             init: `File Created at ${args.filePath}. Get ready to start coding`.green,
-            test: 'Reporting Test Results'
+            test: 'Tests ran succesfully'
         };
 
         return spinner.succeed(successResponse[action]);

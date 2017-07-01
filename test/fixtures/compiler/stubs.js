@@ -18,6 +18,10 @@ module.exports = {
                     return cb((_.includes(args, '-DDEBUG') || _.get(options, 'stdio.0') === 'err.txt') ? 1 : 0);
                 }
                 return cb();
+            },
+
+            kill: function() {
+                return;
             }
         };
     },

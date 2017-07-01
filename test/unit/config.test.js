@@ -36,6 +36,8 @@ describe('.config', function() {
             expect(args).to.have.property('fileHeaderPath');
             expect(args).to.have.property('url');
             expect(args).to.have.property('options');
+            expect(args).to.have.property('timeout');
+            expect(args).to.have.property('debug');
 
             expect(args.ext).to.equal('cpp');
             expect(args.title).to.equal('765A');
@@ -65,6 +67,8 @@ describe('.config', function() {
             expect(args).to.have.property('fileHeaderPath');
             expect(args).to.have.property('url');
             expect(args).to.have.property('options');
+            expect(args).to.have.property('timeout');
+            expect(args).to.have.property('debug');
 
             expect(args.ext).to.equal('cpp');
             expect(args.title).to.equal('765A');

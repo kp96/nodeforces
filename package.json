@@ -1,6 +1,6 @@
 {
   "name": "nodeforces",
-  "version": "0.1.0-beta.4",
+  "version": "0.1.0",
   "description": "The only codeforces helper you'll ever need",
   "homepage": "https://github.com/kp96/nodeforces",
   "bugs": "https://github.com/kp96/nodeforces/issues",
@@ -22,7 +22,8 @@
     "test": "node npm/test.js",
     "test-system": "node npm/test-system.js",
     "test-lint": "node npm/test-lint.js",
-    "test-unit": "node npm/test-unit.js"
+    "test-unit": "node npm/test-unit.js",
+    "test-integration": "node npm/test-integration.js"
   },
   "author": "Krishna Kalubandi <krishnakalubandi@gmail.com>",
   "license": "MIT",
