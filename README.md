@@ -1,6 +1,6 @@
 # nodeforces
-[![Build Status](https://travis-ci.org/kp96/nodeforces.svg)](https://travis-ci.org/kp96/nodeforces)
-[![Build status](https://ci.appveyor.com/api/projects/status/04fcvk04a1stbau0?svg=true)](https://ci.appveyor.com/project/kp96/nodeforces)
+[![Build Status](https://travis-ci.org/kp96/nodeforces.svg?branch=master)](https://travis-ci.org/kp96/nodeforces)
+[![Build status](https://ci.appveyor.com/api/projects/status/04fcvk04a1stbau0/branch/master?svg=true)](https://ci.appveyor.com/project/kp96/nodeforces)
 [![Code Climate](https://codeclimate.com/github/kp96/nodeforces/badges/gpa.svg)](https://codeclimate.com/github/kp96/nodeforces)
 [![Code Climate](https://codeclimate.com/github/kp96/nodeforces/badges/coverage.svg)](https://codeclimate.com/github/kp96/nodeforces)
 
@@ -20,6 +20,7 @@ And that's all you need to create and test your code.
 - Parse problem sample input and output
 - Source file generation with required template
 - Compile and Execute code
+- Debug lines parser
 - Test your code against sample input and output
 - Support for Java `javac` and C++ `g++`
 
@@ -64,9 +65,9 @@ $ nodeforces init 585C.java
 File Created at /home/krishna/585C/585C.java. Get ready to start coding
 
 ```
-The above command automatically creats a folder `585C` in your `home` directory and adds the source file `585C.java` along with sample input and output files. You can change the directory to store and other options [**(see Advanced Usage)**](#advanced-usage-experimental)
+The above command automatically creats a folder `585C` in your `home` directory and adds the source file `585C.java` along with sample input and output files. You can change the directory to store and other options [**(see Advanced Usage)**](#advanced-usage)
 
-See the extension `.java`. That's what tells the module to compile your code using `javac`. For specifying compiler options [**(see Advanced Usage)**](#advanced-usage-experimental)
+See the extension `.java`. That's what tells the module to compile your code using `javac`. For specifying compiler options [**(see Advanced Usage)**](#advanced-usage)
 
 **Note**: If you're using `Java` make sure to write your main method inside `Main class` that is not public (something like below)
 
@@ -115,7 +116,10 @@ $ nodeforces test 585C.java
 The output format should be familiar to you if you've used [Mocha](https://mochajs.org/) before. It simply reports all the test results with expected output and your output.
 
 
-## Advanced Usage (Experimental)
+## Advanced Usage
+
+### Configuration
+
 Advanced users can create a `.cfrc` file in their `home` directory for specifying advanced options. The config should be a `json` file that looks something like
 
 ```
@@ -129,6 +133,33 @@ Advanced users can create a `.cfrc` file in their `home` directory for specifyin
         "options": ["-std=c++11"]
     }
 }
+```
+
+### Testing with debug flag
+
+When you need to log something to stdout for debugging purpose, all you need to do is test with the `-d` flag. The `-d` flag parses the lines starting with `~` and automatically shows them as the debug log. For instance,
+
+
+```
+    888A.cpp
+    if (case == 1)
+        printf("~I am debug line\n");
+```
+
+Now running the below command produces something like,
+
+```
+    $ nodeforces test 888A.cpp -d
+```
+
+```
+    DEBUG output for Case: 1
+    I am a debug line
+    ***Tests for 585C**
+      ✓ Case: 1
+      ✓ Case: 2
+
+    2 passing (16ms)
 ```
 
 ## Contributing
