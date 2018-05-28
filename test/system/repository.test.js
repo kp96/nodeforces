@@ -48,7 +48,7 @@ describe('project repository', function () {
                 expect(json.keywords).to.eql(['codeforces', 'api', 'helper', 'testing']);
 
                 expect(json).to.have.property('engines');
-                expect(json.engines).to.eql({ node: '>=4' });
+                expect(json.engines).to.eql({ node: '>=6' });
             });
 
             it('must have a valid version string in form of <major>.<minor>.<revision>', function () {
