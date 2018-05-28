@@ -80,37 +80,37 @@ describe('.compiler', function() {
     describe('._run', function() {
         it('should recognize .cpp files and run them using apppropriate a files', function(done) {
             compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'test.cpp' },
-            'in.txt', function(err) {
+                'in.txt', function(err) {
 
-                expect(err).to.not.be.ok();
-                expect(stub.getCall(0).args[0]).to.be.eql((/^win/).test(process.platform) ? 'a.exe' : './a.out');
+                    expect(err).to.not.be.ok();
+                    expect(stub.getCall(0).args[0]).to.be.eql((/^win/).test(process.platform) ? 'a.exe' : './a.out');
 
-                return done();
-            });
+                    return done();
+                });
         });
 
         it('should recognize .java files and run them using java Main', function(done) {
             compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'test.java' },
-            'in.txt', function(err) {
+                'in.txt', function(err) {
 
-                expect(err).to.not.be.ok();
-                expect(stub.getCall(0).args[0]).to.be.equal('java');
-                expect(stub.getCall(0).args[1]).to.be.eql(['Main']);
+                    expect(err).to.not.be.ok();
+                    expect(stub.getCall(0).args[0]).to.be.equal('java');
+                    expect(stub.getCall(0).args[1]).to.be.eql(['Main']);
 
-                return done();
-            });
+                    return done();
+                });
         });
 
         it('should throw runtime error if run fails and must pipe child_process err to stderr', function(done) {
             compiler._run({ dir: path.resolve('./test/fixtures/compiler/code'), fileName: 'error.java' },
-            'err.txt', function(err) {
+                'err.txt', function(err) {
 
-                expect(err).to.be.ok();
-                expect(err.message).to.match(/Run Failed. Exit Code \d+/);
-                expect(console.error.getCall(0).args[0]).to.be.equal('error compiling');
+                    expect(err).to.be.ok();
+                    expect(err.message).to.match(/Run Failed. Exit Code \d+/);
+                    expect(console.error.getCall(0).args[0]).to.be.equal('error compiling');
 
-                return done();
-            });
+                    return done();
+                });
         });
     });
 
