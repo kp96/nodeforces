@@ -17,9 +17,9 @@ describe('.cfapi', function() {
         _.forEach(mappings.problem, function(mapping) {
             // initialize nocks
             nock('http://codeforces.com')
-              .persist()
-              .get(mapping.path)
-              .replyWithFile(mapping.statusCode, mapping.response);
+                .persist()
+                .get(mapping.path)
+                .replyWithFile(mapping.statusCode, mapping.response);
         });
 
         return done();
