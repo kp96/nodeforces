@@ -108,7 +108,7 @@ ll gcd(ll a, ll b) {
 ll n, S;
 
 ll cost(int k, vll a) {
-  cout<< "~" << "k is " << k << endl;
+
   ll sum = 0;
   vll costs(a.size());
 
