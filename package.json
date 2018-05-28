@@ -58,7 +58,7 @@
     "rewire": "4.0.1"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "greenkeeper": {
     "ignore": [
