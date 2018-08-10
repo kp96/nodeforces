@@ -37,7 +37,7 @@
     "mkdirp": "0.5.1",
     "mocha": "5.2.0",
     "ora": "2.1.0",
-    "request": "2.87.0"
+    "request": "2.88.0"
   },
   "devDependencies": {
     "editorconfig": "0.15.0",
