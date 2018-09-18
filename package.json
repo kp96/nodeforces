@@ -51,7 +51,7 @@
     "nsp": "2.6.3",
     "packity": "0.3.2",
     "parse-gitignore": "0.4.0",
-    "pretty-ms": "3.2.0",
+    "pretty-ms": "4.0.0",
     "recursive-readdir": "2.2.2",
     "shelljs": "0.8.2",
     "sinon": "5.0.10",
